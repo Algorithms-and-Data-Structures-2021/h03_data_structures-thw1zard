@@ -40,6 +40,7 @@ namespace itis {
             throw std::logic_error("cannot not dequeue from empty queue");
         }
         if (size_ == 1) {
+            delete front_;
             front_ = nullptr;
             back_ = front_;
         }
@@ -47,7 +48,6 @@ namespace itis {
             auto* delete_node = front_;
             front_ = front_ -> next;
             delete delete_node;
-
         }
         size_--;
         // TODO: напишите здесь свой код ...
