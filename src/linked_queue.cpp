@@ -25,13 +25,15 @@ namespace itis {
             throw std::logic_error("could not dequeue from empty queue");
         }
         if (size_ == 1) {
+            delete front_;
             front_ = nullptr;
             back_ = front_;
             size_--;
         }
         if(size_ > 1){
-            SinglyNode* next_node = front_->next;
-            front_ = next_node;
+            auto* delete_node = front_;
+            front_ = front_ -> next;
+            delete delete_node;
             size_--;
         }
 

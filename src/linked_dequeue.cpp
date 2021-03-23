@@ -44,10 +44,10 @@ namespace itis {
             back_ = front_;
         }
         if (size_ > 1) {
-            DoublyNode *next_node = front_->next;
-            front_ = next_node;
-            delete front_ -> previous;
-            front_ -> previous = nullptr;
+            auto* delete_node = front_;
+            front_ = front_ -> next;
+            delete delete_node;
+
         }
         size_--;
         // TODO: напишите здесь свой код ...

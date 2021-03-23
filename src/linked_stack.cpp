@@ -14,8 +14,9 @@ namespace itis {
         if (top_ == nullptr) {
             throw std::logic_error("cannot pop out from empty stack");
         }
-        SinglyNode* node_after_top = top_->next;
-        top_ = node_after_top;
+        auto* delete_node = top_;
+        top_ = top_->next;
+        delete delete_node;
         size_--;
         // TODO: напишите здесь свой код ...
     }
